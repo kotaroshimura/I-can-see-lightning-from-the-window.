@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GIF Admin</title>
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <main>
+      <section class="login" id="loginPanel">
+        <form id="loginForm">
+          <h1>GIF Admin</h1>
+          <input id="passwordInput" type="password" placeholder="管理パスワード" autocomplete="current-password" />
+          <button type="submit">ログイン</button>
+          <p id="loginMessage"></p>
+        </form>
+      </section>
+
+      <section class="editor" id="editorPanel" hidden>
+        <aside>
+          <div class="top">
+            <strong>GIF</strong>
+            <button type="button" id="saveButton">保存</button>
+          </div>
+          <div class="library" id="library"></div>
+          <div class="controls">
+            <label>X<input id="xInput" type="number" /></label>
+            <label>Y<input id="yInput" type="number" /></label>
+            <label>W<input id="wInput" type="number" min="1" /></label>
+            <label>H<input id="hInput" type="number" min="1" /></label>
+            <label>動き<select id="motionInput"><option value="fixed">固定</option><option value="scroll">右から左</option></select></label>
+            <label>秒<input id="durationInput" type="number" min="1" max="120" /></label>
+          </div>
+          <div class="buttons">
+            <button type="button" id="duplicateButton">複製</button>
+            <button type="button" id="deleteButton">削除</button>
+          </div>
+          <p class="hint">GIFを押すと追加。配置したGIFはドラッグ。Shift+クリックで複数選択。</p>
+          <p class="message" id="message"></p>
+        </aside>
+        <section class="canvasWrap">
+          <div class="adminStage" id="adminStage"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6f8;
+  --panel: #fff;
+  --ink: #16181d;
+  --muted: #667085;
+  --line: #d7dce5;
+  --accent: #1769ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 10px;
+  background: #fff;
+}
+
+.login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.login form {
+  width: min(360px, 100%);
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
+
+.editor {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+aside {
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+  padding: 14px;
+  overflow: auto;
+}
+
+.top,
+.buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.top {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#saveButton {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  padding: 0 14px;
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.gifChoice {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.gifChoice img {
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.controls label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.controls label:nth-child(5),
+.controls label:nth-child(6) {
+  grid-column: span 2;
+}
+
+.hint,
+.message,
+#loginMessage {
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.canvasWrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.adminStage {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 40px rgba(16, 24, 40, 0.12);
+}
+
+.item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px solid transparent;
+  cursor: grab;
+}
+
+.item.selected {
+  border-color: var(--accent);
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .editor {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

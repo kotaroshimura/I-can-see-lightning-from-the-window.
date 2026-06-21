@@ -1,0 +1,19 @@
+{
+  "stage": {
+    "width": 390,
+    "height": 844
+  },
+  "items": [
+    {
+      "id": "item-1782028206128-942",
+      "gif": "LF47YAIUXUGPGIJC2SIYGEQNKIOKP3BC.gif",
+      "x": 0,
+      "y": 137,
+      "width": 390,
+      "height": 550,
+      "motion": "fixed",
+      "duration": 18000,
+      "offset": 0
+    }
+  ]
+}
