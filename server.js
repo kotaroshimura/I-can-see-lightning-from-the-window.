@@ -13,6 +13,8 @@ const SCENE_FILE = path.join(DATA_DIR, "scene.json");
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || (process.env.NODE_ENV === "production" ? "" : "admin");
 const ADMIN_COOKIE = "gif_admin=1";
 const syncEpoch = Date.now();
+const DEFAULT_GIF = "LF47YAIUXUGPGIJC2SIYGEQNKIOKP3BC.gif";
+const DEFAULT_GIF_SIZE = { width: 157, height: 310 };
 
 fs.mkdirSync(GIF_DIR, { recursive: true });
 fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -26,19 +28,25 @@ function listGifs() {
 }
 
 function defaultScene() {
+  const gifs = listGifs();
+  const gif = gifs.includes(DEFAULT_GIF) ? DEFAULT_GIF : gifs[0];
+  if (!gif) return { stage: { width: 390, height: 844 }, items: [] };
+
   return {
     stage: { width: 390, height: 844 },
-    items: listGifs().slice(0, 1).map((gif, index) => ({
-      id: `item-${index + 1}`,
-      gif,
-      x: 390,
-      y: 356,
-      width: 132,
-      height: 132,
-      motion: "scroll",
-      duration: 18000,
-      offset: 0
-    }))
+    items: [
+      {
+        id: "centered-window-gif",
+        gif,
+        x: Math.round((390 - DEFAULT_GIF_SIZE.width) / 2),
+        y: Math.round((844 - DEFAULT_GIF_SIZE.height) / 2),
+        width: DEFAULT_GIF_SIZE.width,
+        height: DEFAULT_GIF_SIZE.height,
+        motion: "fixed",
+        duration: 18000,
+        offset: 0
+      }
+    ]
   };
 }
 

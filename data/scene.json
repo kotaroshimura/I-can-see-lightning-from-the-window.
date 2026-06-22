@@ -5,12 +5,12 @@
   },
   "items": [
     {
-      "id": "item-1782028206128-942",
+      "id": "centered-window-gif",
       "gif": "LF47YAIUXUGPGIJC2SIYGEQNKIOKP3BC.gif",
-      "x": 0,
-      "y": 137,
-      "width": 390,
-      "height": 550,
+      "x": 117,
+      "y": 267,
+      "width": 157,
+      "height": 310,
       "motion": "fixed",
       "duration": 18000,
       "offset": 0
